@@ -6,10 +6,10 @@ Summary(tr):	Finger istemcisi
 Group:		Networking/Utilities
 Group(pl):	Sieciowe/Narzêdzia
 Name:		bsd-finger
-Version:	0.16
-Release:	2
+Version:	0.17
+Release:	0
 License:	BSD
-Source0:	ftp://sunsite.unc.edu/pub/Linux/system/network/finger/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
 Source2:	fingerd.inetd
 Patch0:		bsd-finger-DESTDIR.patch
@@ -88,8 +88,8 @@ finger sunucusu bulunmaktadýr.
 %prep
 %setup  -q
 %patch0 -p1
-%patch1 -p1
 # Need update.
+#%patch1 -p1
 #%patch2 -p1
 
 %build
