@@ -14,8 +14,10 @@ Source1:	finger.1.pl
 Patch0:		bsd-finger-misc.patch
 Patch1:		bsd-finger-security.patch
 Patch2:		bsd-finger-nobr.patch
-Patch3:		bsd-finger-typo.patch
-Patch4:		bsd-finger-ipv6.patch
+Patch3:		bsd-finger-ipv6.patch
+Patch4:		bsd-finger-maint.patch
+Patch5:		bsd-finger-timeout.patch
+Patch6:		bsd-finger-pts.patch
 Requires:	inetd
 Provides:	fingerd
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -88,6 +90,8 @@ bulunmaktadýr.
 %patch2 -p1 
 %patch3 -p1 
 %patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 %build
 make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
