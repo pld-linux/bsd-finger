@@ -99,7 +99,7 @@ make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/{bin,/etc/sysconfig/rc-inetd,sbin,share/man/{man1,man8,pl/man1}}
+install -d $RPM_BUILD_ROOT/{usr/{bin,sbin,share/man/{man1,man8,pl/man1}},etc/sysconfig/rc-inetd}
 
 make INSTALLROOT=$RPM_BUILD_ROOT MANDIR=%{_mandir} install
 
