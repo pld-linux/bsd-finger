@@ -98,7 +98,7 @@ finger sunucusu bulunmaktadýr.
 	--installroot=$RPM_BUILD_ROOT \
 	--prefix=%{_prefix}
 
-%{__make} CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
+%{__make} CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
