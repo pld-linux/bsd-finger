@@ -97,14 +97,14 @@ finger sunucusu bulunmaktadýr.
 	--installroot=$RPM_BUILD_ROOT \
 	--prefix=%{_prefix}
 
-make CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/{man{1,8},pl/man1}} \
 	$RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
 
-make MANDIR=%{_mandir} install
+%{__make} MANDIR=%{_mandir} install
 
 mv -f $RPM_BUILD_ROOT%{_sbindir}/in.fingerd \
 	$RPM_BUILD_ROOT%{_sbindir}/fingerd
