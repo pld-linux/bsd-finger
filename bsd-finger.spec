@@ -94,15 +94,15 @@ make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/{bin,sbin,share/man/{man1,man8,pl/man1}}
 
-make INSTALLROOT=$RPM_BUILD_ROOT MANDIR=/usr/share/man install
+make INSTALLROOT=$RPM_BUILD_ROOT MANDIR=%{_mandir} install
 
 mv -f $RPM_BUILD_ROOT/usr/sbin/in.fingerd $RPM_BUILD_ROOT/usr/sbin/fingerd
-mv -f $RPM_BUILD_ROOT/usr/share/man/man8/in.fingerd.8 \
-	$RPM_BUILD_ROOT/usr/share/man/man8/fingerd.8 
+mv -f $RPM_BUILD_ROOT%{_mandir}/man8/in.fingerd.8 \
+	$RPM_BUILD_ROOT%{_mandir}/man8/fingerd.8 
 
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/share/man/pl/man1/finger.1
+install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1/finger.1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/share/man/{man1,man8,pl/man1}/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/{man1,man8,pl/man1}/* \
 	README BUGS
 
 %clean
@@ -113,14 +113,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc {README,BUGS}.gz
 %attr(755,root,root) /usr/sbin/*
 
-/usr/share/man/man8/*
+%{_mandir}/man8/*
 
 %files -n finger-client
 %defattr(644,root,root,755)
 %attr(755,root,root) /usr/bin/*
 
-/usr/share/man/man1/*
-/usr/share/man/pl/man1/*
+%{_mandir}/man1/*
+%{_mandir}/pl/man1/*
 
 %changelog
 * Thu May 13 1999 Piotr Czerwiñski <pius@pld.org.pl>
