@@ -19,7 +19,8 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Source2:	fingerd.inetd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-exact.patch
-Patch2:		http://www.t17.ds.pwr.wroc.pl/~misiek/ipv6/%{name}-0.16-20000912.patch.gz
+# http://www.t17.ds.pwr.wroc.pl/~misiek/ipv6/
+Patch2:		%{name}-0.16-20000912.patch.gz
 Patch3:		%{name}-time.patch
 Patch4:		%{name}-gecos.patch
 Patch5:		%{name}-rfc742.patch
