@@ -76,10 +76,10 @@ finger. Цей пакет м╕стить стандартний кл╕╓нт finger.
 %package -n bsd-fingerd
 Summary:	Finger server
 Summary(de):	Finger-Server
-Summary(es):	El servidor finger.
+Summary(es):	El servidor finger
 Summary(fr):	Server finger
 Summary(pl):	Serwer finger
-Summary(pt_BR):	O servidor finger.
+Summary(pt_BR):	O servidor finger
 Summary(ru):	Демон finger
 Summary(tr):	Finger sunucusu
 Summary(uk):	Демон finger
