@@ -18,7 +18,7 @@ Patch2:		bsd-finger-pts.patch
 Patch3:		http://www.misiek.eu.org/ipv6/bsd-finger-ipv6.patch.gz
 Obsoletes:	finger
 Obsoletes:	finger-client
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Finger is a simple protocol which allows users to find information about
