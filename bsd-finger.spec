@@ -54,9 +54,8 @@ Summary(de):    Finger-Client
 Summary(fr):    Client finger
 Summary(pl):    Klient finger
 Summary(tr):    Finger istemcisi
-Group:          Networking
-Group(pl):	Sieciowe
-Requires:	fingerd
+Group:          Networking/Utilities
+Group(pl):	Sieciowe/Narzêdzia
 
 %description -n finger-client
 Finger is a simple protocol which allows users to find information about
