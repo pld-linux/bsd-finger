@@ -167,7 +167,8 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-gzip -9nf README BUGS
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post -n bsd-fingerd
 if [ -f /var/lock/subsys/rc-inetd ]; then
@@ -181,16 +182,6 @@ if [ -f /var/lock/subsys/rc-inetd ]; then
 	/etc/rc.d/init.d/rc-inetd reload
 fi
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%files -n bsd-fingerd
-%defattr(644,root,root,755)
-%doc {README,BUGS}.gz
-%attr(755,root,root) %{_sbindir}/*
-%attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
-%{_mandir}/man8/*
-
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
@@ -199,3 +190,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %{_mandir}/fr/man1/*
 %lang(hu) %{_mandir}/hu/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
+
+%files -n bsd-fingerd
+%defattr(644,root,root,755)
+%doc README BUGS
+%attr(755,root,root) %{_sbindir}/*
+%attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
+%{_mandir}/man8/*
