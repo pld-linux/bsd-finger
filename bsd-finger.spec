@@ -5,7 +5,9 @@ Summary(pl):	Klient finger
 Summary(tr):	Finger istemcisi
 Group:		Networking/Utilities
 Group(de):	Netzwerkwesen/Werkzeuge
+Group(es):	Red/Utilitarios
 Group(pl):	Sieciowe/Narzêdzia
+Group(pt_BR):	Rede/Utilitários
 Name:		bsd-finger
 Version:	0.17
 Release:	8
