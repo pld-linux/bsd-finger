@@ -1,15 +1,15 @@
-Summary:        Finger client 
-Summary(de):    Finger-Client
-Summary(fr):    Client finger
-Summary(pl):    Klient finger
-Summary(tr):    Finger istemcisi
-Group:          Networking/Utilities
+Summary:	Finger client 
+Summary(de):	Finger-Client
+Summary(fr):	Client finger
+Summary(pl):	Klient finger
+Summary(tr):	Finger istemcisi
+Group:		Networking/Utilities
 Group(pl):	Sieciowe/Narzêdzia
 Name:		bsd-finger
 Version:	0.16
 Release:	2
-Copyright:	BSD
-Source:		ftp://sunsite.unc.edu/pub/Linux/system/network/finger/%{name}-%{version}.tar.gz
+License:	BSD
+Source0:	ftp://sunsite.unc.edu/pub/Linux/system/network/finger/%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
 Source2:	fingerd.inetd
 Patch0:		bsd-finger-DESTDIR.patch
@@ -21,27 +21,29 @@ Obsoletes:	finger-client
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Finger is a simple protocol which allows users to find information about
-users on other machines. This package includes a standard finger client. 
+Finger is a simple protocol which allows users to find information
+about users on other machines. This package includes a standard finger
+client.
 
 %description -l de
-Finger ist ein einfaches Protokoll, das Informationen über Benutzer auf
-anderen Rechnern herausfindet. Dieses Paket enthält einen standardmäßigen
-Finger-Client. 
+Finger ist ein einfaches Protokoll, das Informationen über Benutzer
+auf anderen Rechnern herausfindet. Dieses Paket enthält einen
+standardmäßigen Finger-Client.
 
 %description -l fr
-finger est un protocole simple permettant de trouver des informations sur
-les utilisateurs d'autres machines. Ce paquetage contient un client finger
-standard.
+finger est un protocole simple permettant de trouver des informations
+sur les utilisateurs d'autres machines. Ce paquetage contient un
+client finger standard.
 
 %description -l pl
-Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie informacji
-o u¿ytkownikach na innym serwerze. Pakiet ten zawiera klienta fingera.
+Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie
+informacji o u¿ytkownikach na innym serwerze. Pakiet ten zawiera
+klienta fingera.
 
 %description -l tr
-finger, að baðlantýsý bulunan makinalarda çalýþan kullanýcýlar hakkýnda kýsa
-bilgi veren bir hizmettir. Bu pakette standart bir finger istemcisi 
-bulunmaktadýr.
+finger, að baðlantýsý bulunan makinalarda çalýþan kullanýcýlar
+hakkýnda kýsa bilgi veren bir hizmettir. Bu pakette standart bir
+finger istemcisi bulunmaktadýr.
 
 %package -n bsd-fingerd
 Summary:	Finger server
@@ -59,27 +61,29 @@ Obsoletes:	cfingerd
 Obsoletes:	finger-server
 
 %description -n bsd-fingerd
-Finger is a simple protocol which allows users to find information about
-users on other machines. This package includes a standard finger server. 
+Finger is a simple protocol which allows users to find information
+about users on other machines. This package includes a standard finger
+server.
 
 %description -n bsd-fingerd -l de
-Finger ist ein einfaches Protokoll, das Informationen über Benutzer 
-auf anderen Rechnern herausfindet. Dieses Paket enthält einen 
+Finger ist ein einfaches Protokoll, das Informationen über Benutzer
+auf anderen Rechnern herausfindet. Dieses Paket enthält einen
 standardmäßigen Finger-Server.
 
 %description -n bsd-fingerd -l fr
-finger est un protocole simple permettant de trouver des informations sur
-les utilisateurs d'autres machines. Ce paquetage contient un serveur finger
-standard.
+finger est un protocole simple permettant de trouver des informations
+sur les utilisateurs d'autres machines. Ce paquetage contient un
+serveur finger standard.
 
 %description -n bsd-fingerd -l pl
-Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie informacji
-o u¿ytkownikach na innym serwerze. Pakiet ten zawiera serwer fingera. 
+Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie
+informacji o u¿ytkownikach na innym serwerze. Pakiet ten zawiera
+serwer fingera.
 
 %description -n bsd-fingerd -l tr
-finger, að baðlantýsý bulunan makinalarda çalýþan kullanýcýlar hakkýnda 
-kýsa bilgi veren bir hizmettir. Bu pakette standart bir finger sunucusu 
-bulunmaktadýr.
+finger, að baðlantýsý bulunan makinalarda çalýþan kullanýcýlar
+hakkýnda kýsa bilgi veren bir hizmettir. Bu pakette standart bir
+finger sunucusu bulunmaktadýr.
 
 %prep
 %setup  -q
