@@ -8,7 +8,7 @@ Group(de):	Netzwerkwesen/Werkzeuge
 Group(pl):	Sieciowe/Narzêdzia
 Name:		bsd-finger
 Version:	0.17
-Release:	4
+Release:	5
 License:	BSD
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
