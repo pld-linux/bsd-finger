@@ -1,0 +1,22 @@
+diff -urN bsd-finger-0.17/finger/lprint.c bsd-finger-0.17-patch/finger/lprint.c
+--- bsd-finger-0.17/finger/lprint.c	Tue Sep 14 12:51:11 1999
++++ bsd-finger-0.17-patch/finger/lprint.c	Wed Apr 25 16:53:47 2001
+@@ -49,6 +49,7 @@
+ #include <sys/file.h>
+ #include <sys/stat.h>
+ #include <sys/time.h>
++#include <time.h>
+ #include "finger.h"
+ 
+ static void lprint(PERSON *pn);
+diff -urN bsd-finger-0.17/finger/sprint.c bsd-finger-0.17-patch/finger/sprint.c
+--- bsd-finger-0.17/finger/sprint.c	Sun Dec 12 19:59:33 1999
++++ bsd-finger-0.17-patch/finger/sprint.c	Wed Apr 25 16:53:33 2001
+@@ -41,6 +41,7 @@
+ 
+ #include <sys/types.h>
+ #include <sys/time.h>
++#include <time.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
