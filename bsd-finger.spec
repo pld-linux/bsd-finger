@@ -57,6 +57,7 @@ Group(pl):	Sieciowe/Serwery
 Prereq:		rc-inetd >= 0.8.1
 Provides:	fingerd
 Obsoletes:	fingerd
+Obsoletes:	efingerd
 Obsoletes:	ffingerd
 Obsoletes:	cfingerd
 Obsoletes:	finger-server
