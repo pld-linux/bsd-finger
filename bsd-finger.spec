@@ -15,6 +15,7 @@ Patch0:		bsd-finger-misc.patch
 Patch1:		bsd-finger-security.patch
 Patch2:		bsd-finger-nobr.patch
 Patch3:		bsd-finger-typo.patch
+Patch4:		bsd-finger-ipv6.patch
 Requires:	inetd
 Provides:	fingerd
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -81,11 +82,12 @@ bilgi veren bir hizmettir. Bu pakette standart bir finger istemcisi
 bulunmaktadýr.
 
 %prep
-%setup -q -n bsd-finger-0.10
+%setup -q -n bsd-%{name}-%{version}
 %patch0 -p1 
 %patch1 -p1 
 %patch2 -p1 
 %patch3 -p1 
+%patch4 -p1
 
 %build
 make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
