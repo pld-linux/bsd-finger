@@ -1,0 +1,22 @@
+--- bsd-finger-0.16/finger/Makefile.wiget	Sun Dec 12 19:04:52 1999
++++ bsd-finger-0.16/finger/Makefile	Thu Dec 30 04:46:20 1999
+@@ -10,6 +10,8 @@
+ finger.o: ../version.h
+ 
+ install: finger
++	install -d $(INSTALLROOT)$(BINDIR)
++	install -d $(INSTALLROOT)$(MANDIR)/man1
+ 	install -s -m$(BINMODE) finger $(INSTALLROOT)$(BINDIR)
+ 	install -m$(MANMODE) finger.1 $(INSTALLROOT)$(MANDIR)/man1
+ 
+--- bsd-finger-0.16/fingerd/Makefile.wiget	Sun Dec 12 19:04:57 1999
++++ bsd-finger-0.16/fingerd/Makefile	Thu Dec 30 04:47:05 1999
+@@ -9,6 +9,8 @@
+ fingerd.o: pathnames.h ../version.h
+ 
+ install: fingerd
++	install -d $(INSTALLROOT)$(SBINDIR)
++	install -d $(INSTALLROOT)$(MANDIR)/man8
+ 	install -s -m$(DAEMONMODE) fingerd $(INSTALLROOT)$(SBINDIR)/in.fingerd
+ 	install -m$(MANMODE) fingerd.8 $(INSTALLROOT)$(MANDIR)/man8/in.fingerd.8
+ 	ln -sf in.fingerd.8 $(INSTALLROOT)$(MANDIR)/man8/fingerd.8
