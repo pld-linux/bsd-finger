@@ -19,7 +19,8 @@ Patch3:		bsd-finger-ipv6.patch
 Patch4:		bsd-finger-maint.patch
 Patch5:		bsd-finger-timeout.patch
 Patch6:		bsd-finger-pts.patch
-Requires:	inetdaemon
+Prereq:		/etc/rc.d/init.d/rc-inetd
+Requires:	rc-inetd
 Provides:	fingerd
 BuildRoot:	/tmp/%{name}-%{version}-root
 
