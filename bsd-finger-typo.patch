@@ -1,0 +1,22 @@
+--- bsd-finger-0.17/finger/finger.1.typo	Thu Jan 24 14:33:54 2002
++++ bsd-finger-0.17/finger/finger.1	Thu Jan 24 14:36:17 2002
+@@ -169,7 +169,7 @@
+ must be able to see the
+ .Pa .nofinger
+ file. This generally means that the home directory containing the file
+-must have the other-users-execute bit set (o+w). See
++must have the other-users-execute bit set (o+x). See
+ .Xr chmod 1 .
+ If you use this feature for privacy, please test it with ``finger
+ @localhost'' before relying on it, just in case.
+--- bsd-finger-0.17/finger/net.c.typo	Thu Jan 24 14:33:54 2002
++++ bsd-finger-0.17/finger/net.c	Thu Jan 24 14:40:57 2002
+@@ -98,7 +98,7 @@
+ 	}
+ 	freeaddrinfo(res0);
+ 	if (s < 0) {
+-		eprintf("finger: cannot create socket / connet host\n");
++		eprintf("finger: cannot create socket / connect host\n");
+ 		return;
+ 	}
+ #else
