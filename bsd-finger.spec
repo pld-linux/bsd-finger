@@ -5,7 +5,7 @@ Summary(pl):	Klient i serwer finger
 Summary(tr):	Finger istemcisi ve sunucusu
 Name:		finger
 Version:	0.10
-Release:	2d
+Release:	2
 Copyright:	BSD
 Group:		Networking
 URL:		ftp://sunsite.unc.edu/pub/Linux/system/network/finger
@@ -36,7 +36,7 @@ standard et un serveur. Le serveur est lancé à partir de /etc/inetd.conf,
 qui doit être modifié pour désactiver les requêtes finger.
 
 %description -l pl
-Finger jest prostym protoko³em który umo¿liwia wyszukiwanie iformacji
+Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie informacji
 o u¿ytkownikach na innym serwerze. Pakiet ten zawiera klienta i serwer 
 fingera. 
 
@@ -66,22 +66,26 @@ mv -f $RPM_BUILD_ROOT/usr/sbin/in.fingerd $RPM_BUILD_ROOT/usr/sbin/fingerd
 mv -f $RPM_BUILD_ROOT/usr/man/man8/in.fingerd.8 \
 	$RPM_BUILD_ROOT/usr/man/man8/fingerd.8 
 
-bzip2 -9 $RPM_BUILD_ROOT/usr/man/man[18]/* README BUGS
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man[18]/* README BUGS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.bz2 BUGS.bz2
-
+%doc {README,BUGS}.gz
 %attr(755,root,root) /usr/bin/*
 %attr(755,root,root) /usr/sbin/*
-%attr(644,root, man) /usr/man/man[18]/*
+/usr/man/man[18]/*
 
 %changelog
+* Thu Apr 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
+  [0.10-2]
+- gzipping documentation (instead bzipping)
+- removed man group from man pages
+
 * Sun Nov 08 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.10-1d]
+  [0.10-1]
 - build for PLD Tornado,
 - major changes.
 
