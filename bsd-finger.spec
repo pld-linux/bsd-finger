@@ -7,7 +7,7 @@ Group:          Networking/Utilities
 Group(pl):	Sieciowe/Narzêdzia
 Name:		bsd-finger
 Version:	0.16
-Release:	1
+Release:	2
 Copyright:	BSD
 Source:		ftp://sunsite.unc.edu/pub/Linux/system/network/finger/%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
@@ -15,7 +15,7 @@ Source2:	fingerd.inetd
 Patch0:		bsd-finger-DESTDIR.patch
 Patch1:		bsd-finger-exact.patch
 Patch2:		bsd-finger-pts.patch
-Patch3:	http://www.misiek.eu.org/ipv6/bsd-finger-ipv6.patch.gz
+Patch3:		http://www.misiek.eu.org/ipv6/bsd-finger-ipv6.patch.gz
 Obsoletes:	finger
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -50,9 +50,12 @@ Summary(pl):	Serwer finger
 Summary(tr):	Finger sunucusu
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
-Prereq:		rc-inetd
+Prereq:		rc-inetd >= 0.8.1
 Provides:	fingerd
 Obsoletes:	fingerd
+Obsoletes:	ffingetd
+Obsoletes:	cfingerd
+Obsoletes:	finger-server
 
 %description -n bsd-fingerd
 Finger is a simple protocol which allows users to find information about
@@ -81,8 +84,6 @@ bulunmaktadýr.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
-# I think, this is not needen now
-#%patch2 -p1
 # Need update.
 #%patch2 -p1
 
@@ -113,14 +114,14 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/{man?/*,pl/man1/*} \
 
 %post -n bsd-fingerd
 if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd restart 1>&2
+	/etc/rc.d/init.d/rc-inetd reload 1>&2
 else
 	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet sever" 1>&2
 fi
 
 %postun -n bsd-fingerd
 if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd restart
+	/etc/rc.d/init.d/rc-inetd reload
 fi
 
 %clean
