@@ -100,7 +100,7 @@ mv -f $RPM_BUILD_ROOT/usr/sbin/in.fingerd $RPM_BUILD_ROOT/usr/sbin/fingerd
 mv -f $RPM_BUILD_ROOT/usr/share/man/man8/in.fingerd.8 \
 	$RPM_BUILD_ROOT/usr/share/man/man8/fingerd.8 
 
-install {SOURCE1} $RPM_BUILD_ROOT/usr/share/man/pl/man1/finger.1
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/share/man/pl/man1/finger.1
 
 gzip -9nf $RPM_BUILD_ROOT/usr/share/man/{man1,man8,pl/man1}/* \
 	README BUGS
