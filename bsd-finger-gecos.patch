@@ -1,0 +1,24 @@
+diff -urN bsd-finger-0.17/finger/util.c bsd-finger-0.17.patch/finger/util.c
+--- bsd-finger-0.17/finger/util.c	Wed Sep 29 00:53:58 1999
++++ bsd-finger-0.17.patch/finger/util.c	Wed May  9 16:47:17 2001
+@@ -147,10 +147,17 @@
+ 			}
+ 		}
+ 		rname[j] = 0;
+-
+-		pn->realname = rname;
+ 	}
+-
++	else {
++		rname = (char*) malloc(sizeof(char));
++		if (rname == NULL) {
++			eprintf("finger: Out of space.\n");
++			exit(1);
++		}
++		rname[0] = 0;
++	}
++	
++	pn->realname = rname;
+ 	pn->office =      fields[1] ? strdup(fields[1]) : NULL;
+ 	pn->officephone = fields[2] ? strdup(fields[2]) : NULL;
+ 	pn->homephone =   fields[3] ? strdup(fields[3]) : NULL;
