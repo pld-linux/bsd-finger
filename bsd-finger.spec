@@ -4,17 +4,18 @@ Summary(fr):	Client finger
 Summary(pl):	Klient finger
 Summary(tr):	Finger istemcisi
 Group:		Networking/Utilities
+Group(de):	Netzwerkwesen/Werkzeuge
 Group(pl):	Sieciowe/Narzêdzia
 Name:		bsd-finger
 Version:	0.17
-Release:	1
+Release:	2
 License:	BSD
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
 Source2:	fingerd.inetd
-Patch0:		bsd-finger-DESTDIR.patch
-Patch1:		bsd-finger-exact.patch
-Patch2:		http://www.misiek.eu.org/ipv6/bsd-finger-0.16-20000912.patch.gz
+Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-exact.patch
+Patch2:		http://www.misiek.eu.org/ipv6/%{name}-0.16-20000912.patch.gz
 Obsoletes:	finger
 Obsoletes:	finger-client
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,6 +52,7 @@ Summary(fr):	Server finger
 Summary(pl):	Serwer finger
 Summary(tr):	Finger sunucusu
 Group:		Networking/Daemons
+Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
 Prereq:		rc-inetd >= 0.8.1
 Provides:	fingerd
@@ -96,7 +98,7 @@ finger sunucusu bulunmaktadýr.
 	--installroot=$RPM_BUILD_ROOT \
 	--prefix=%{_prefix}
 
-%{__make} CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -108,13 +110,12 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/{man{1,8},pl/man1}}
 mv -f $RPM_BUILD_ROOT%{_sbindir}/in.fingerd \
 	$RPM_BUILD_ROOT%{_sbindir}/fingerd
 mv -f $RPM_BUILD_ROOT%{_mandir}/man8/in.fingerd.8 \
-	 $RPM_BUILD_ROOT%{_mandir}/man8/fingerd.8 
+	$RPM_BUILD_ROOT%{_mandir}/man8/fingerd.8 
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1/finger.1
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/{man?/*,pl/man1/*} \
-	README BUGS
+gzip -9nf README BUGS
 
 %post -n bsd-fingerd
 if [ -f /var/lock/subsys/rc-inetd ]; then
