@@ -5,7 +5,7 @@ Summary(pl):	Serwer finger
 Summary(tr):	Finger sunucusu
 Name:		finger
 Version:	0.10
-Release:	3
+Release:	25
 Copyright:	BSD
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
