@@ -4,10 +4,6 @@ Summary(fr):	Client finger
 Summary(pl):	Klient finger
 Summary(tr):	Finger istemcisi
 Group:		Networking/Utilities
-Group(de):	Netzwerkwesen/Werkzeuge
-Group(es):	Red/Utilitarios
-Group(pl):	Sieciowe/Narzêdzia
-Group(pt_BR):	Rede/Utilitários
 Name:		bsd-finger
 Version:	0.17
 Release:	8
@@ -56,8 +52,6 @@ Summary(fr):	Server finger
 Summary(pl):	Serwer finger
 Summary(tr):	Finger sunucusu
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Prereq:		rc-inetd >= 0.8.1
 Provides:	fingerd
 Obsoletes:	fingerd
