@@ -3,6 +3,6 @@ SOCK_TYPE=stream
 PROTOCOL=tcp
 PORT=79
 FLAGS=nowait
-USER=root
+USER=nobody
 SERVER=tcpd
 DAEMON=/usr/sbin/fingerd
