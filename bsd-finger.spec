@@ -121,34 +121,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_mandir}/man1/*
 %{_mandir}/pl/man1/*
-
-%changelog
-* Thu May 13 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [0.10-3]
-- added Group(pl),
-- added finger-client subpackage,
-- minor changes in %install,
-- added pl translation of finger(1),
-- package is now FHS 2.0 compliant.
-
-* Thu Apr 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [0.10-2]
-- gzipping documentation (instead bzipping)
-- removed man group from man pages
-
-* Sun Nov 08 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.10-1]
-- build for PLD Tornado,
-- major changes.
-
-* Wed Aug 12 1998 Jeff Johnson <jbj@redhat.com>
-- fix error message typo.
-
-* Tue Aug 11 1998 Jeff Johnson <jbj@redhat.com>
-- build root
-
-* Mon Apr 27 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Mon Sep 22 1997 Erik Troan <ewt@redhat.com>
-- added check for getpwnam() failure
