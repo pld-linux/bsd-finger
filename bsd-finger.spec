@@ -14,7 +14,7 @@ Source1:	finger.1.pl
 Source2:	fingerd.inetd
 Patch0:		bsd-finger-DESTDIR.patch
 Patch1:		bsd-finger-exact.patch
-Patch2:		http://www.misiek.eu.org/ipv6/bsd-finger-ipv6.patch.gz
+Patch2:		http://www.misiek.eu.org/ipv6/bsd-finger-0.16-20000912.patch.gz
 Obsoletes:	finger
 Obsoletes:	finger-client
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
