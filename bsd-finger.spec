@@ -7,15 +7,14 @@ Group:		Networking/Utilities
 Group(pl):	Sieciowe/Narzêdzia
 Name:		bsd-finger
 Version:	0.17
-Release:	0
+Release:	1
 License:	BSD
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
 Source2:	fingerd.inetd
 Patch0:		bsd-finger-DESTDIR.patch
 Patch1:		bsd-finger-exact.patch
-Patch2:		bsd-finger-pts.patch
-Patch3:		http://www.misiek.eu.org/ipv6/bsd-finger-ipv6.patch.gz
+Patch2:		http://www.misiek.eu.org/ipv6/bsd-finger-ipv6.patch.gz
 Obsoletes:	finger
 Obsoletes:	finger-client
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -88,8 +87,8 @@ finger sunucusu bulunmaktadýr.
 %prep
 %setup  -q
 %patch0 -p1
+%patch1 -p1
 # Need update.
-#%patch1 -p1
 #%patch2 -p1
 
 %build
