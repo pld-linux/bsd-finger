@@ -3,26 +3,29 @@ which is necessary for finger to work at all if info about your
 users is stored in a database for which the nsswitch module doesn't
 provide the (deprecated) getpwent() functions.
 
---- bsd-finger-0.10/finger/finger.c	Sun Apr 11 00:55:54 1999
-+++ bsd-finger-0.10/finger/finger.c	Sun Apr 11 00:57:25 1999
-@@ -191,13 +191,12 @@
+diff -urN bsd-finger-0.17/finger/finger.c bsd-finger-0.17.new/finger/finger.c
+--- bsd-finger-0.17/finger/finger.c	Sat Dec 18 17:41:51 1999
++++ bsd-finger-0.17.new/finger/finger.c	Thu Oct 26 02:05:22 2000
+@@ -238,15 +238,14 @@
  	 * traverse the list of possible login names and check the login name
  	 * and real name against the name specified by the user.
  	 */
 -	if (mflag) {
 -		for (i = 0; i < argc; i++)
 -			if (used[i] >= 0 && (pw = getpwnam(argv[i]))) {
--				enter_person(pw);
--				used[i] = 1;
--			}
--	} else for (pw = getpwent(); pw; pw = getpwent())
+-				if (!check_nofinger(pw)) {
+-					enter_person(pw);
+-					used[i] = 1;
+-				}
 +	for (i = 0; i < argc; i++)
 +		if (used[i] >= 0 && (pw = getpwnam(argv[i]))) {
-+			enter_person(pw);
-+			used[i] = 1;
++			if (!check_nofinger(pw)) {
++				enter_person(pw);
++				used[i] = 1;
+ 			}
+-	} else for (pw = getpwent(); pw; pw = getpwent())
 +		}
 +	if (!mflag) for (pw = getpwent(); pw; pw = getpwent())
  		for (i = 0; i < argc; i++)
  			if (used[i] >= 0 &&
  			    (!strcasecmp(pw->pw_name, argv[i]) ||
-
