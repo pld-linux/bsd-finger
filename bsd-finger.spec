@@ -96,7 +96,7 @@ install -d $RPM_BUILD_ROOT/usr/{bin,sbin,share/man/{man1,man8,pl/man1}}
 
 make INSTALLROOT=$RPM_BUILD_ROOT MANDIR=%{_mandir} install
 
-mv -f $RPM_BUILD_ROOT/usr/sbin/in.fingerd $RPM_BUILD_ROOT/usr/sbin/fingerd
+mv -f $RPM_BUILD_ROOT%{_sbindir}/in.fingerd $RPM_BUILD_ROOT/usr/sbin/fingerd
 mv -f $RPM_BUILD_ROOT%{_mandir}/man8/in.fingerd.8 \
 	$RPM_BUILD_ROOT%{_mandir}/man8/fingerd.8 
 
@@ -111,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {README,BUGS}.gz
-%attr(755,root,root) /usr/sbin/*
+%attr(755,root,root) %{_sbindir}/*
 
 %{_mandir}/man8/*
 
