@@ -6,7 +6,7 @@ Summary(tr):	Finger istemcisi
 Group:		Networking/Utilities
 Name:		bsd-finger
 Version:	0.17
-Release:	8
+Release:	9
 License:	BSD
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
