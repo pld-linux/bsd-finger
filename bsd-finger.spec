@@ -11,7 +11,7 @@ Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
 Source:		ftp://sunsite.unc.edu/pub/Linux/system/network/finger/bsd-%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
-Source2:	finger.inetd
+Source2:	fingerd.inetd
 Patch0:		bsd-finger-misc.patch
 Patch1:		bsd-finger-security.patch
 Patch2:		bsd-finger-nobr.patch
