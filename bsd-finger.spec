@@ -111,14 +111,14 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/{man?/*,pl/man1/*} \
 	README BUGS
 
-%post 
+%post -n fingerd
 if [ -f /var/lock/subsys/rc-inetd ]; then
 	/etc/rc.d/init.d/rc-inetd restart 1>&2
 else
 	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet sever" 1>&2
 fi
 
-%postun
+%postun -n fingerd
 if [ -f /var/lock/subsys/rc-inetd ]; then
 	/etc/rc.d/init.d/rc-inetd restart
 fi
