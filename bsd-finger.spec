@@ -8,10 +8,10 @@ Group(de):	Netzwerkwesen/Werkzeuge
 Group(pl):	Sieciowe/Narzêdzia
 Name:		bsd-finger
 Version:	0.17
-Release:	7
+Release:	8
 License:	BSD
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
-Source1:	finger.1.pl
+Source1:	%{name}-non-english-man-pages.tar.bz2
 Source2:	fingerd.inetd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-exact.patch
@@ -117,8 +117,9 @@ mv -f $RPM_BUILD_ROOT%{_sbindir}/in.fingerd \
 mv -f $RPM_BUILD_ROOT%{_mandir}/man8/in.fingerd.8 \
 	$RPM_BUILD_ROOT%{_mandir}/man8/fingerd.8 
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1/finger.1
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
+
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 gzip -9nf README BUGS
 
@@ -148,4 +149,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
+%lang(fi) %{_mandir}/fi/man1/*
+%lang(fr) %{_mandir}/fr/man1/*
+%lang(hu) %{_mandir}/hu/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
