@@ -11,7 +11,7 @@ Version:	0.17
 Release:	8
 License:	BSD
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
-Source1:	%{name}-non-english-man-pages.tar.bz2
+Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 Source2:	fingerd.inetd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-exact.patch
