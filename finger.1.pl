@@ -69,7 +69,7 @@ pokazywane s± jako gwiazdki.
 Po podaniu tej opcji finger wy¶wietla pe³n± informacjê, pokazan± w kilku
 liniach, okre¶lon± przez opcjê
 .Fl s
-plus dodatkowo katalog domowy u¿ytkownika, telefon domowy, shell logowania siê,
+plus dodatkowo katalog domowy u¿ytkownika, telefon domowy, pow³oka logowania siê,
 informacjê o jego poczcie, i zawarto¶æ plików
 .Dq Pa .plan
 ,
