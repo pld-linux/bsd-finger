@@ -144,4 +144,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-%{_mandir}/pl/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
