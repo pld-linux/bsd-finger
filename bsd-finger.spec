@@ -1,14 +1,14 @@
-Summary:	Finger server
-Summary(de):	Finger-Server 
-Summary(fr):	Server finger
-Summary(pl):	Serwer finger
-Summary(tr):	Finger sunucusu
+Summary:        Finger client 
+Summary(de):    Finger-Client
+Summary(fr):    Client finger
+Summary(pl):    Klient finger
+Summary(tr):    Finger istemcisi
+Group:          Networking/Utilities
+Group(pl):	Sieciowe/Narzêdzia
 Name:		finger
 Version:	0.10
 Release:	26
 Copyright:	BSD
-Group:		Networking/Daemons
-Group(pl):	Sieciowe/Serwery
 Source:		ftp://sunsite.unc.edu/pub/Linux/system/network/finger/bsd-%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
 Source2:	fingerd.inetd
@@ -20,64 +20,64 @@ Patch4:		bsd-finger-maint.patch
 Patch5:		bsd-finger-timeout.patch
 Patch6:		bsd-finger-pts.patch
 Patch7:		bsd-finger-exact.patch
-Prereq:		rc-inetd
-Provides:	fingerd
-Obsoletes:	fingerd
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 Finger is a simple protocol which allows users to find information about
-users on other machines. This package includes a standard finger server. 
-
-%description -l de
-Finger ist ein einfaches Protokoll, das Informationen über Benutzer 
-auf anderen Rechnern herausfindet. Dieses Paket enthält einen 
-standardmäßigen Finger-Server.
-
-%description -l fr
-finger est un protocole simple permettant de trouver des informations sur
-les utilisateurs d'autres machines. Ce paquetage contient un serveur finger
-standard.
-
-%description -l pl
-Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie informacji
-o u¿ytkownikach na innym serwerze. Pakiet ten zawiera serwer fingera. 
-
-%description -l tr
-finger, að baðlantýsý bulunan makinalarda çalýþan kullanýcýlar hakkýnda 
-kýsa bilgi veren bir hizmettir. Bu pakette standart bir finger sunucusu 
-bulunmaktadýr.
-
-%package -n finger-client
-Summary:        Finger client 
-Summary(de):    Finger-Client
-Summary(fr):    Client finger
-Summary(pl):    Klient finger
-Summary(tr):    Finger istemcisi
-Group:          Networking/Utilities
-Group(pl):	Sieciowe/Narzêdzia
-
-%description -n finger-client
-Finger is a simple protocol which allows users to find information about
 users on other machines. This package includes a standard finger client. 
 
-%description -n finger-client -l de
+%description -l de
 Finger ist ein einfaches Protokoll, das Informationen über Benutzer auf
 anderen Rechnern herausfindet. Dieses Paket enthält einen standardmäßigen
 Finger-Client. 
 
-%description -n finger-client -l fr
+%description -l fr
 finger est un protocole simple permettant de trouver des informations sur
 les utilisateurs d'autres machines. Ce paquetage contient un client finger
 standard.
 
-%description -n finger-client -l pl
+%description -l pl
 Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie informacji
 o u¿ytkownikach na innym serwerze. Pakiet ten zawiera klienta fingera.
 
-%description -n finger-client -l tr
+%description -l tr
 finger, að baðlantýsý bulunan makinalarda çalýþan kullanýcýlar hakkýnda kýsa
 bilgi veren bir hizmettir. Bu pakette standart bir finger istemcisi 
+bulunmaktadýr.
+
+%package -n fingerd
+Summary:	Finger server
+Summary(de):	Finger-Server 
+Summary(fr):	Server finger
+Summary(pl):	Serwer finger
+Summary(tr):	Finger sunucusu
+Group:		Networking/Daemons
+Group(pl):	Sieciowe/Serwery
+Prereq:		rc-inetd
+Provides:	fingerd
+Obsoletes:	fingerd
+
+%description -n fingerd
+Finger is a simple protocol which allows users to find information about
+users on other machines. This package includes a standard finger server. 
+
+%description -n fingerd -l de
+Finger ist ein einfaches Protokoll, das Informationen über Benutzer 
+auf anderen Rechnern herausfindet. Dieses Paket enthält einen 
+standardmäßigen Finger-Server.
+
+%description -n fingerd -l fr
+finger est un protocole simple permettant de trouver des informations sur
+les utilisateurs d'autres machines. Ce paquetage contient un serveur finger
+standard.
+
+%description -n fingerd -l pl
+Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie informacji
+o u¿ytkownikach na innym serwerze. Pakiet ten zawiera serwer fingera. 
+
+%description -n fingerd -l tr
+finger, að baðlantýsý bulunan makinalarda çalýþan kullanýcýlar hakkýnda 
+kýsa bilgi veren bir hizmettir. Bu pakette standart bir finger sunucusu 
 bulunmaktadýr.
 
 %prep
@@ -126,17 +126,15 @@ fi
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -n fingerd
 %defattr(644,root,root,755)
 %doc {README,BUGS}.gz
 %attr(755,root,root) %{_sbindir}/*
 %attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
-
 %{_mandir}/man8/*
 
-%files -n finger-client
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-
 %{_mandir}/man1/*
 %{_mandir}/pl/man1/*
