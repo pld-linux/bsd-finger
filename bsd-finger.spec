@@ -11,6 +11,7 @@ Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
 Source:		ftp://sunsite.unc.edu/pub/Linux/system/network/finger/bsd-%{name}-%{version}.tar.gz
 Source1:	finger.1.pl
+Source2:	finger.inetd
 Patch0:		bsd-finger-misc.patch
 Patch1:		bsd-finger-security.patch
 Patch2:		bsd-finger-nobr.patch
@@ -98,7 +99,7 @@ make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/{bin,sbin,share/man/{man1,man8,pl/man1}}
+install -d $RPM_BUILD_ROOT/usr/{bin,/etc/sysconfig/rc-inetd,sbin,share/man/{man1,man8,pl/man1}}
 
 make INSTALLROOT=$RPM_BUILD_ROOT MANDIR=%{_mandir} install
 
@@ -107,6 +108,7 @@ mv -f $RPM_BUILD_ROOT%{_mandir}/man8/in.fingerd.8 \
 	$RPM_BUILD_ROOT%{_mandir}/man8/fingerd.8 
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1/finger.1
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/{man1,man8,pl/man1}/* \
 	README BUGS
@@ -118,6 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {README,BUGS}.gz
 %attr(755,root,root) %{_sbindir}/*
+%attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
 
 %{_mandir}/man8/*
 
