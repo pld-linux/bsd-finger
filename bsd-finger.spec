@@ -1,8 +1,12 @@
 Summary:	Finger client
 Summary(de):	Finger-Client
+Summary(es):	Cliente finger
 Summary(fr):	Client finger
 Summary(pl):	Klient finger
+Summary(pt_BR):	Cliente finger
+Summary(ru):	ëÌÉÅÎÔ finger
 Summary(tr):	Finger istemcisi
+Summary(uk):	ëÌ¦¤ÎÔ finger
 Group:		Networking/Utilities
 Name:		bsd-finger
 Version:	0.17
@@ -16,6 +20,8 @@ Patch1:		%{name}-exact.patch
 Patch2:		http://www.misiek.eu.org/ipv6/%{name}-0.16-20000912.patch.gz
 Patch3:		%{name}-time.patch
 Patch4:		%{name}-gecos.patch
+Patch5:		%{name}-rfc742.patch
+Patch6:		%{name}-typo.patch
 Obsoletes:	finger
 Obsoletes:	finger-client
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,6 +36,11 @@ Finger ist ein einfaches Protokoll, das Informationen über Benutzer
 auf anderen Rechnern herausfindet. Dieses Paket enthält einen
 standardmäßigen Finger-Client.
 
+%description -l es
+Finger es un protocolo sencillo que permite buscar información sobre
+usuarios en otras máquinas. Este paquete incluye un cliente padrón
+finger.
+
 %description -l fr
 finger est un protocole simple permettant de trouver des informations
 sur les utilisateurs d'autres machines. Ce paquetage contient un
@@ -40,17 +51,38 @@ Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie
 informacji o u¿ytkownikach na innym serwerze. Pakiet ten zawiera
 klienta fingera.
 
+%description -l pt_BR
+Finger é um protocolo simples que permite buscar informações sobre
+usuários em outras máquinas. Este pacote inclui um cliente padrão
+finger.
+
+%description -l ru
+Finger - ÜÔÏ ÕÔÉÌÉÔÁ, ĞÏÚ×ÏÌÑÀİÁÑ ĞÏÌØÚÏ×ÁÔÅÌÑÍ ĞÏÌÕŞÁÔØ ÉÎÆÏÒÍÁÃÉÀ Ï
+ĞÏÌØÚÏ×ÁÔÅÌÑÈ (ÌÏÇÉÎ, ÄÏÍÁÛÎÉÊ ËÁÔÁÌÏÇ, ÉÍÑ ĞÏÌØÚÏ×ÁÔÅÌÑ, ËÁË ÄÏÌÇÏ
+ÏÎÉ ÎÁÈÏÄÑÔÓÑ × ÓÉÓÔÅÍÅ É ĞÒ.) ÎÁ ÍÁÛÉÎÁÈ, ÇÄÅ ÕÓÔÁÎÏ×ÌÅÎ ÓÅÒ×ÅÒ
+finger. üÔÏÔ ĞÁËÅÔ ÓÏÄÅÒÖÉÔ ÓÔÁÎÄÁÒÔÎÙÊ ËÌÉÅÎÔ finger.
+
 %description -l tr
 finger, ağ bağlantısı bulunan makinalarda çalışan kullanıcılar
 hakkında kısa bilgi veren bir hizmettir. Bu pakette standart bir
 finger istemcisi bulunmaktadır.
 
+%description -l uk
+Finger - ÃÅ ÕÔÉÌ¦ÔÁ, İÏ ÄÏÚ×ÏÌÑ¤ ËÏÒÉÓÔÕ×ÁŞÁÍ ÏÔÒÉÍÕ×ÁÔÉ ¦ÎÆÏÒÍÁÃ¦À
+ĞÒÏ ËÏÒÉÓÔÕ×ÁŞ¦× (ÌÏÇ¦Î, ÄÏÍÁÛÎ¦Ê ËÁÔÁÌÏÇ, ¦Í'Ñ ËÏÒÉÓÔÕ×ÁŞÁ, ÑË ÄÏ×ÇÏ
+×ÏÎÉ ÚÎÁÈÏÄÑÔØÓÑ × ÓÉÓÔÅÍ¦ ¦ Ô.Ğ.) ÎÁ ÍÁÛÉÎÁÈ, ÄÅ ×ÓÔÁÎÏ×ÌÅÎÏ ÓÅÒ×ÅÒ
+finger. ãÅÊ ĞÁËÅÔ Í¦ÓÔÉÔØ ÓÔÁÎÄÁÒÔÎÉÊ ËÌ¦¤ÎÔ finger.
+
 %package -n bsd-fingerd
 Summary:	Finger server
 Summary(de):	Finger-Server
+Summary(es):	El servidor finger.
 Summary(fr):	Server finger
 Summary(pl):	Serwer finger
+Summary(pt_BR):	O servidor finger.
+Summary(ru):	äÅÍÏÎ finger
 Summary(tr):	Finger sunucusu
+Summary(uk):	äÅÍÏÎ finger
 Group:		Networking/Daemons
 Prereq:		rc-inetd >= 0.8.1
 Provides:	fingerd
@@ -70,6 +102,11 @@ Finger ist ein einfaches Protokoll, das Informationen über Benutzer
 auf anderen Rechnern herausfindet. Dieses Paket enthält einen
 standardmäßigen Finger-Server.
 
+%description -n bsd-fingerd -l es
+Finger es un protocolo sencillo que permite buscar información sobre
+usuarios en otras máquinas. Este paquete incluye un servidor padrón
+finger.
+
 %description -n bsd-fingerd -l fr
 finger est un protocole simple permettant de trouver des informations
 sur les utilisateurs d'autres machines. Ce paquetage contient un
@@ -80,10 +117,21 @@ Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie
 informacji o u¿ytkownikach na innym serwerze. Pakiet ten zawiera
 serwer fingera.
 
+%description -n bsd-fingerd -l pt_BR
+Finger é um protocolo simples que permite buscar informações sobre
+usuários em outras máquinas. Este pacote inclui o servidor padrão
+finger.
+
+%description -n bsd-fingerd -l ru
+ğÁËÅÔ finger-server ×ËÌÀŞÁÅÔ ÓÔÁÎÄÁÒÔÎÙÊ ÓÅÒ×ÅÒ finger.
+
 %description -n bsd-fingerd -l tr
 finger, ağ bağlantısı bulunan makinalarda çalışan kullanıcılar
 hakkında kısa bilgi veren bir hizmettir. Bu pakette standart bir
 finger sunucusu bulunmaktadır.
+
+%description -n bsd-fingerd -l uk
+ğÁËÅÔ finger-server ×ËÌÀŞÁ¤ ÓÔÁÎÄÁÒÔÎÉÊ ÓÅÒ×ÅÒ finger.
 
 %prep
 %setup  -q
@@ -92,9 +140,11 @@ finger sunucusu bulunmaktadır.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 %build
-CC=gcc \
+CC=%{__cc} \
 ./configure \
 	--installroot=$RPM_BUILD_ROOT \
 	--prefix=%{_prefix}
