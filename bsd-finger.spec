@@ -1,4 +1,4 @@
-Summary:	Finger client 
+Summary:	Finger client
 Summary(de):	Finger-Client
 Summary(fr):	Client finger
 Summary(pl):	Klient finger
@@ -47,7 +47,7 @@ finger istemcisi bulunmaktadýr.
 
 %package -n bsd-fingerd
 Summary:	Finger server
-Summary(de):	Finger-Server 
+Summary(de):	Finger-Server
 Summary(fr):	Server finger
 Summary(pl):	Serwer finger
 Summary(tr):	Finger sunucusu
@@ -111,7 +111,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/{man{1,8},pl/man1}}
 mv -f $RPM_BUILD_ROOT%{_sbindir}/in.fingerd \
 	$RPM_BUILD_ROOT%{_sbindir}/fingerd
 mv -f $RPM_BUILD_ROOT%{_mandir}/man8/in.fingerd.8 \
-	$RPM_BUILD_ROOT%{_mandir}/man8/fingerd.8 
+	$RPM_BUILD_ROOT%{_mandir}/man8/fingerd.8
 
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
