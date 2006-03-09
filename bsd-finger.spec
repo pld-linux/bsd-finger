@@ -147,7 +147,7 @@ finger sunucusu bulunmaktadýr.
 %patch6 -p1
 
 %build
-CC=%{__cc} \
+CC="%{__cc}" \
 ./configure \
 	--installroot=$RPM_BUILD_ROOT \
 	--prefix=%{_prefix}
