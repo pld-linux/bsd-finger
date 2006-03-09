@@ -1,0 +1,2 @@
+- release 2,
+- use new rpm automation and make spec %{debug} ready.
