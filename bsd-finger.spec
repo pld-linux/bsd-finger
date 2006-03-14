@@ -7,11 +7,11 @@ Summary(pt_BR):	Cliente finger
 Summary(ru):	Клиент finger
 Summary(tr):	Finger istemcisi
 Summary(uk):	Кл╕╓нт finger
-Group:		Networking/Utilities
 Name:		bsd-finger
 Version:	0.17
 Release:	11
 License:	BSD
+Group:		Networking/Utilities
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
 # Source0-md5:	52bf281aac8814bf56cdc92f7661ee75
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
@@ -25,6 +25,7 @@ Patch3:		%{name}-time.patch
 Patch4:		%{name}-gecos.patch
 Patch5:		%{name}-rfc742.patch
 Patch6:		%{name}-typo.patch
+BuildRequires:	rpmbuild(macros) >= 1.268
 Obsoletes:	finger
 Obsoletes:	finger-client
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -87,13 +88,13 @@ Summary(ru):	Демон finger
 Summary(tr):	Finger sunucusu
 Summary(uk):	Демон finger
 Group:		Networking/Daemons
-Prereq:		rc-inetd >= 0.8.1
+Requires:	rc-inetd >= 0.8.1
 Provides:	fingerd
-Obsoletes:	fingerd
+Obsoletes:	cfingerd
 Obsoletes:	efingerd
 Obsoletes:	ffingerd
-Obsoletes:	cfingerd
 Obsoletes:	finger-server
+Obsoletes:	fingerd
 
 %description -n bsd-fingerd
 Finger is a simple protocol which allows users to find information
@@ -174,15 +175,11 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 rm -rf $RPM_BUILD_ROOT
 
 %post -n bsd-fingerd
-if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd reload 1>&2
-else
-	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server" 1>&2
-fi
+%service -q rc-inetd reload
 
 %postun -n bsd-fingerd
-if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd reload
+if [ "$1" = 0 ]; then
+	%service -q rc-inetd reload
 fi
 
 %files
