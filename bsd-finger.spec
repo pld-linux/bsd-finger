@@ -1,12 +1,12 @@
 Summary:	Finger client
-Summary(de):	Finger-Client
-Summary(es):	Cliente finger
-Summary(fr):	Client finger
-Summary(pl):	Klient finger
-Summary(pt_BR):	Cliente finger
-Summary(ru):	ëÌÉÅÎÔ finger
-Summary(tr):	Finger istemcisi
-Summary(uk):	ëÌ¦¤ÎÔ finger
+Summary(de.UTF-8):   Finger-Client
+Summary(es.UTF-8):   Cliente finger
+Summary(fr.UTF-8):   Client finger
+Summary(pl.UTF-8):   Klient finger
+Summary(pt_BR.UTF-8):   Cliente finger
+Summary(ru.UTF-8):   ĞšĞ»Ğ¸ĞµĞ½Ñ‚ finger
+Summary(tr.UTF-8):   Finger istemcisi
+Summary(uk.UTF-8):   ĞšĞ»Ñ–Ñ”Ğ½Ñ‚ finger
 Name:		bsd-finger
 Version:	0.17
 Release:	11
@@ -35,58 +35,58 @@ Finger is a simple protocol which allows users to find information
 about users on other machines. This package includes a standard finger
 client.
 
-%description -l de
-Finger ist ein einfaches Protokoll, das Informationen über Benutzer
-auf anderen Rechnern herausfindet. Dieses Paket enthält einen
-standardmäßigen Finger-Client.
+%description -l de.UTF-8
+Finger ist ein einfaches Protokoll, das Informationen Ã¼ber Benutzer
+auf anderen Rechnern herausfindet. Dieses Paket enthÃ¤lt einen
+standardmÃ¤ÃŸigen Finger-Client.
 
-%description -l es
-Finger es un protocolo sencillo que permite buscar información sobre
-usuarios en otras máquinas. Este paquete incluye un cliente padrón
+%description -l es.UTF-8
+Finger es un protocolo sencillo que permite buscar informaciÃ³n sobre
+usuarios en otras mÃ¡quinas. Este paquete incluye un cliente padrÃ³n
 finger.
 
-%description -l fr
+%description -l fr.UTF-8
 finger est un protocole simple permettant de trouver des informations
 sur les utilisateurs d'autres machines. Ce paquetage contient un
 client finger standard.
 
-%description -l pl
-Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie
-informacji o u¿ytkownikach na innym serwerze. Pakiet ten zawiera
+%description -l pl.UTF-8
+Finger jest prostym protokoÅ‚em, ktÃ³ry umoÅ¼liwia wyszukiwanie
+informacji o uÅ¼ytkownikach na innym serwerze. Pakiet ten zawiera
 klienta fingera.
 
-%description -l pt_BR
-Finger é um protocolo simples que permite buscar informações sobre
-usuários em outras máquinas. Este pacote inclui um cliente padrão
+%description -l pt_BR.UTF-8
+Finger Ã© um protocolo simples que permite buscar informaÃ§Ãµes sobre
+usuÃ¡rios em outras mÃ¡quinas. Este pacote inclui um cliente padrÃ£o
 finger.
 
-%description -l ru
-Finger - ÜÔÏ ÕÔÉÌÉÔÁ, ĞÏÚ×ÏÌÑÀİÁÑ ĞÏÌØÚÏ×ÁÔÅÌÑÍ ĞÏÌÕŞÁÔØ ÉÎÆÏÒÍÁÃÉÀ Ï
-ĞÏÌØÚÏ×ÁÔÅÌÑÈ (ÌÏÇÉÎ, ÄÏÍÁÛÎÉÊ ËÁÔÁÌÏÇ, ÉÍÑ ĞÏÌØÚÏ×ÁÔÅÌÑ, ËÁË ÄÏÌÇÏ
-ÏÎÉ ÎÁÈÏÄÑÔÓÑ × ÓÉÓÔÅÍÅ É ĞÒ.) ÎÁ ÍÁÛÉÎÁÈ, ÇÄÅ ÕÓÔÁÎÏ×ÌÅÎ ÓÅÒ×ÅÒ
-finger. üÔÏÔ ĞÁËÅÔ ÓÏÄÅÒÖÉÔ ÓÔÁÎÄÁÒÔÎÙÊ ËÌÉÅÎÔ finger.
+%description -l ru.UTF-8
+Finger - ÑÑ‚Ğ¾ ÑƒÑ‚Ğ¸Ğ»Ğ¸Ñ‚Ğ°, Ğ¿Ğ¾Ğ·Ğ²Ğ¾Ğ»ÑÑÑ‰Ğ°Ñ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑĞ¼ Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ°Ñ‚ÑŒ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ğ¸Ñ Ğ¾
+Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑÑ… (Ğ»Ğ¾Ğ³Ğ¸Ğ½, Ğ´Ğ¾Ğ¼Ğ°ÑˆĞ½Ğ¸Ğ¹ ĞºĞ°Ñ‚Ğ°Ğ»Ğ¾Ğ³, Ğ¸Ğ¼Ñ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ, ĞºĞ°Ğº Ğ´Ğ¾Ğ»Ğ³Ğ¾
+Ğ¾Ğ½Ğ¸ Ğ½Ğ°Ñ…Ğ¾Ğ´ÑÑ‚ÑÑ Ğ² ÑĞ¸ÑÑ‚ĞµĞ¼Ğµ Ğ¸ Ğ¿Ñ€.) Ğ½Ğ° Ğ¼Ğ°ÑˆĞ¸Ğ½Ğ°Ñ…, Ğ³Ğ´Ğµ ÑƒÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ»ĞµĞ½ ÑĞµÑ€Ğ²ĞµÑ€
+finger. Ğ­Ñ‚Ğ¾Ñ‚ Ğ¿Ğ°ĞºĞµÑ‚ ÑĞ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ñ‚ ÑÑ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ½Ñ‹Ğ¹ ĞºĞ»Ğ¸ĞµĞ½Ñ‚ finger.
 
-%description -l tr
-finger, ağ bağlantısı bulunan makinalarda çalışan kullanıcılar
-hakkında kısa bilgi veren bir hizmettir. Bu pakette standart bir
-finger istemcisi bulunmaktadır.
+%description -l tr.UTF-8
+finger, aÄŸ baÄŸlantÄ±sÄ± bulunan makinalarda Ã§alÄ±ÅŸan kullanÄ±cÄ±lar
+hakkÄ±nda kÄ±sa bilgi veren bir hizmettir. Bu pakette standart bir
+finger istemcisi bulunmaktadÄ±r.
 
-%description -l uk
-Finger - ÃÅ ÕÔÉÌ¦ÔÁ, İÏ ÄÏÚ×ÏÌÑ¤ ËÏÒÉÓÔÕ×ÁŞÁÍ ÏÔÒÉÍÕ×ÁÔÉ ¦ÎÆÏÒÍÁÃ¦À
-ĞÒÏ ËÏÒÉÓÔÕ×ÁŞ¦× (ÌÏÇ¦Î, ÄÏÍÁÛÎ¦Ê ËÁÔÁÌÏÇ, ¦Í'Ñ ËÏÒÉÓÔÕ×ÁŞÁ, ÑË ÄÏ×ÇÏ
-×ÏÎÉ ÚÎÁÈÏÄÑÔØÓÑ × ÓÉÓÔÅÍ¦ ¦ Ô.Ğ.) ÎÁ ÍÁÛÉÎÁÈ, ÄÅ ×ÓÔÁÎÏ×ÌÅÎÏ ÓÅÒ×ÅÒ
-finger. ãÅÊ ĞÁËÅÔ Í¦ÓÔÉÔØ ÓÔÁÎÄÁÒÔÎÉÊ ËÌ¦¤ÎÔ finger.
+%description -l uk.UTF-8
+Finger - Ñ†Ğµ ÑƒÑ‚Ğ¸Ğ»Ñ–Ñ‚Ğ°, Ñ‰Ğ¾ Ğ´Ğ¾Ğ·Ğ²Ğ¾Ğ»ÑÑ” ĞºĞ¾Ñ€Ğ¸ÑÑ‚ÑƒĞ²Ğ°Ñ‡Ğ°Ğ¼ Ğ¾Ñ‚Ñ€Ğ¸Ğ¼ÑƒĞ²Ğ°Ñ‚Ğ¸ Ñ–Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ñ–Ñ
+Ğ¿Ñ€Ğ¾ ĞºĞ¾Ñ€Ğ¸ÑÑ‚ÑƒĞ²Ğ°Ñ‡Ñ–Ğ² (Ğ»Ğ¾Ğ³Ñ–Ğ½, Ğ´Ğ¾Ğ¼Ğ°ÑˆĞ½Ñ–Ğ¹ ĞºĞ°Ñ‚Ğ°Ğ»Ğ¾Ğ³, Ñ–Ğ¼'Ñ ĞºĞ¾Ñ€Ğ¸ÑÑ‚ÑƒĞ²Ğ°Ñ‡Ğ°, ÑĞº Ğ´Ğ¾Ğ²Ğ³Ğ¾
+Ğ²Ğ¾Ğ½Ğ¸ Ğ·Ğ½Ğ°Ñ…Ğ¾Ğ´ÑÑ‚ÑŒÑÑ Ğ² ÑĞ¸ÑÑ‚ĞµĞ¼Ñ– Ñ– Ñ‚.Ğ¿.) Ğ½Ğ° Ğ¼Ğ°ÑˆĞ¸Ğ½Ğ°Ñ…, Ğ´Ğµ Ğ²ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ»ĞµĞ½Ğ¾ ÑĞµÑ€Ğ²ĞµÑ€
+finger. Ğ¦ĞµĞ¹ Ğ¿Ğ°ĞºĞµÑ‚ Ğ¼Ñ–ÑÑ‚Ğ¸Ñ‚ÑŒ ÑÑ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ½Ğ¸Ğ¹ ĞºĞ»Ñ–Ñ”Ğ½Ñ‚ finger.
 
 %package -n bsd-fingerd
 Summary:	Finger server
-Summary(de):	Finger-Server
-Summary(es):	El servidor finger
-Summary(fr):	Server finger
-Summary(pl):	Serwer finger
-Summary(pt_BR):	O servidor finger
-Summary(ru):	äÅÍÏÎ finger
-Summary(tr):	Finger sunucusu
-Summary(uk):	äÅÍÏÎ finger
+Summary(de.UTF-8):   Finger-Server
+Summary(es.UTF-8):   El servidor finger
+Summary(fr.UTF-8):   Server finger
+Summary(pl.UTF-8):   Serwer finger
+Summary(pt_BR.UTF-8):   O servidor finger
+Summary(ru.UTF-8):   Ğ”ĞµĞ¼Ğ¾Ğ½ finger
+Summary(tr.UTF-8):   Finger sunucusu
+Summary(uk.UTF-8):   Ğ”ĞµĞ¼Ğ¾Ğ½ finger
 Group:		Networking/Daemons
 Requires:	rc-inetd >= 0.8.1
 Provides:	fingerd
@@ -101,41 +101,41 @@ Finger is a simple protocol which allows users to find information
 about users on other machines. This package includes a standard finger
 server.
 
-%description -n bsd-fingerd -l de
-Finger ist ein einfaches Protokoll, das Informationen über Benutzer
-auf anderen Rechnern herausfindet. Dieses Paket enthält einen
-standardmäßigen Finger-Server.
+%description -n bsd-fingerd -l de.UTF-8
+Finger ist ein einfaches Protokoll, das Informationen Ã¼ber Benutzer
+auf anderen Rechnern herausfindet. Dieses Paket enthÃ¤lt einen
+standardmÃ¤ÃŸigen Finger-Server.
 
-%description -n bsd-fingerd -l es
-Finger es un protocolo sencillo que permite buscar información sobre
-usuarios en otras máquinas. Este paquete incluye un servidor padrón
+%description -n bsd-fingerd -l es.UTF-8
+Finger es un protocolo sencillo que permite buscar informaciÃ³n sobre
+usuarios en otras mÃ¡quinas. Este paquete incluye un servidor padrÃ³n
 finger.
 
-%description -n bsd-fingerd -l fr
+%description -n bsd-fingerd -l fr.UTF-8
 finger est un protocole simple permettant de trouver des informations
 sur les utilisateurs d'autres machines. Ce paquetage contient un
 serveur finger standard.
 
-%description -n bsd-fingerd -l pl
-Finger jest prostym protoko³em, który umo¿liwia wyszukiwanie
-informacji o u¿ytkownikach na innym serwerze. Pakiet ten zawiera
+%description -n bsd-fingerd -l pl.UTF-8
+Finger jest prostym protokoÅ‚em, ktÃ³ry umoÅ¼liwia wyszukiwanie
+informacji o uÅ¼ytkownikach na innym serwerze. Pakiet ten zawiera
 serwer fingera.
 
-%description -n bsd-fingerd -l pt_BR
-Finger é um protocolo simples que permite buscar informações sobre
-usuários em outras máquinas. Este pacote inclui o servidor padrão
+%description -n bsd-fingerd -l pt_BR.UTF-8
+Finger Ã© um protocolo simples que permite buscar informaÃ§Ãµes sobre
+usuÃ¡rios em outras mÃ¡quinas. Este pacote inclui o servidor padrÃ£o
 finger.
 
-%description -n bsd-fingerd -l ru
-ğÁËÅÔ finger-server ×ËÌÀŞÁÅÔ ÓÔÁÎÄÁÒÔÎÙÊ ÓÅÒ×ÅÒ finger.
+%description -n bsd-fingerd -l ru.UTF-8
+ĞŸĞ°ĞºĞµÑ‚ finger-server Ğ²ĞºĞ»ÑÑ‡Ğ°ĞµÑ‚ ÑÑ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ½Ñ‹Ğ¹ ÑĞµÑ€Ğ²ĞµÑ€ finger.
 
-%description -n bsd-fingerd -l tr
-finger, ağ bağlantısı bulunan makinalarda çalışan kullanıcılar
-hakkında kısa bilgi veren bir hizmettir. Bu pakette standart bir
-finger sunucusu bulunmaktadır.
+%description -n bsd-fingerd -l tr.UTF-8
+finger, aÄŸ baÄŸlantÄ±sÄ± bulunan makinalarda Ã§alÄ±ÅŸan kullanÄ±cÄ±lar
+hakkÄ±nda kÄ±sa bilgi veren bir hizmettir. Bu pakette standart bir
+finger sunucusu bulunmaktadÄ±r.
 
-%description -n bsd-fingerd -l uk
-ğÁËÅÔ finger-server ×ËÌÀŞÁ¤ ÓÔÁÎÄÁÒÔÎÉÊ ÓÅÒ×ÅÒ finger.
+%description -n bsd-fingerd -l uk.UTF-8
+ĞŸĞ°ĞºĞµÑ‚ finger-server Ğ²ĞºĞ»ÑÑ‡Ğ°Ñ” ÑÑ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ½Ğ¸Ğ¹ ÑĞµÑ€Ğ²ĞµÑ€ finger.
 
 %prep
 %setup  -q
