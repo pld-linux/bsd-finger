@@ -1,12 +1,12 @@
 Summary:	Finger client
-Summary(de.UTF-8):   Finger-Client
-Summary(es.UTF-8):   Cliente finger
-Summary(fr.UTF-8):   Client finger
-Summary(pl.UTF-8):   Klient finger
-Summary(pt_BR.UTF-8):   Cliente finger
-Summary(ru.UTF-8):   Клиент finger
-Summary(tr.UTF-8):   Finger istemcisi
-Summary(uk.UTF-8):   Клієнт finger
+Summary(de.UTF-8):	Finger-Client
+Summary(es.UTF-8):	Cliente finger
+Summary(fr.UTF-8):	Client finger
+Summary(pl.UTF-8):	Klient finger
+Summary(pt_BR.UTF-8):	Cliente finger
+Summary(ru.UTF-8):	Клиент finger
+Summary(tr.UTF-8):	Finger istemcisi
+Summary(uk.UTF-8):	Клієнт finger
 Name:		bsd-finger
 Version:	0.17
 Release:	11
@@ -79,14 +79,14 @@ finger. Цей пакет містить стандартний клієнт fin
 
 %package -n bsd-fingerd
 Summary:	Finger server
-Summary(de.UTF-8):   Finger-Server
-Summary(es.UTF-8):   El servidor finger
-Summary(fr.UTF-8):   Server finger
-Summary(pl.UTF-8):   Serwer finger
-Summary(pt_BR.UTF-8):   O servidor finger
-Summary(ru.UTF-8):   Демон finger
-Summary(tr.UTF-8):   Finger sunucusu
-Summary(uk.UTF-8):   Демон finger
+Summary(de.UTF-8):	Finger-Server
+Summary(es.UTF-8):	El servidor finger
+Summary(fr.UTF-8):	Server finger
+Summary(pl.UTF-8):	Serwer finger
+Summary(pt_BR.UTF-8):	O servidor finger
+Summary(ru.UTF-8):	Демон finger
+Summary(tr.UTF-8):	Finger sunucusu
+Summary(uk.UTF-8):	Демон finger
 Group:		Networking/Daemons
 Requires:	rc-inetd >= 0.8.1
 Provides:	fingerd
