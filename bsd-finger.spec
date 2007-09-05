@@ -9,7 +9,7 @@ Summary(tr.UTF-8):	Finger istemcisi
 Summary(uk.UTF-8):	Клієнт finger
 Name:		bsd-finger
 Version:	0.17
-Release:	11
+Release:	12
 License:	BSD
 Group:		Networking/Utilities
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
