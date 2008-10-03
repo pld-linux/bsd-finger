@@ -26,7 +26,7 @@
  int getscreenwidth(void);
 +
 +/* locale support */
-+extern int has_locale = 0;
++extern int has_locale;
 +void set_haslocale(void);
 +
 --- bsd-finger-0.17/finger/display.c.widechar	1999-09-29 00:53:58.000000000 +0200
