@@ -1,6 +1,6 @@
 diff -ur bsd-finger-0.17/finger/util.c bsd-finger-0.17-iconv/finger/util.c
---- bsd-finger-0.17/finger/util.c	2008-10-03 23:13:12.000000000 +0200
-+++ bsd-finger-0.17-iconv/finger/util.c	2008-10-03 23:11:21.000000000 +0200
+--- bsd-finger-0.17/finger/util.c	2008-10-04 00:48:15.000000000 +0200
++++ bsd-finger-0.17-iconv/finger/util.c	2008-10-04 00:47:47.000000000 +0200
 @@ -53,6 +53,14 @@
  #include <stdlib.h>
  #include "finger.h"
@@ -16,23 +16,40 @@ diff -ur bsd-finger-0.17/finger/util.c bsd-finger-0.17-iconv/finger/util.c
  #define	HBITS	8			/* number of bits in hash code */
  #define	HSIZE	(1 << 8)		/* hash table size */
  #define	HMASK	(HSIZE - 1)		/* hash code mask */
-@@ -227,6 +235,54 @@
+@@ -183,7 +191,7 @@
+ {
+ 	char *p;
+ 	int i, j, ct, rv=0;
+-	char *rname;
++	char *rname, *irname = NULL;
+ 
+ 	strncpy(tbuf, pw->pw_gecos, TBUFLEN);
+ 	tbuf[TBUFLEN-1] = 0;  /* guarantee null termination */
+@@ -222,11 +230,62 @@
+ 	    }
+ 	}
+ 	rname[j] = 0;
++#if defined(HAVE_LANGINFO_H) && defined(HAVE_ICONV)
++	irname = malloc(2*strlen(rname) + 1);
++	if (irname)
++		strcpy(irname, rname);
++#endif
+ 
+ 	for (p = strtok(rname, "\t "); p && !rv; p = strtok(NULL, "\t ")) {
  	    if (!strcasecmp(p, user)) 
  		rv = 1;
  	}
 +
 +#if defined(HAVE_LANGINFO_H) && defined(HAVE_ICONV)
-+	if (!rv && has_locale) {
-+		char *irname, *iuser, *inbuf, *outbuf;
++	if (!rv && has_locale && irname) {
++		char *iuser, *inbuf, *outbuf;
 +		iconv_t cd;
 +		size_t il, ol;
 +
-+		irname = malloc(2*strlen(rname) + 1);
-+		if (!irname)
-+			goto done;
 +		iuser = malloc(2*strlen(user) + 1);
 +		if (!iuser)
-+			goto done_rname;
++			goto done;
++		strcpy(rname, irname);
 +		memset(iuser, 0, 2*strlen(user) + 1);
 +		memset(irname, 0, 2*strlen(rname) + 1);
 +
@@ -63,10 +80,10 @@ diff -ur bsd-finger-0.17/finger/util.c bsd-finger-0.17-iconv/finger/util.c
 +		iconv_close(cd);
 +done_user:
 +		free(iuser);
-+done_rname:
-+		free(irname);
 +	}
 +done:
++	if (irname)
++		free(irname);
 +#endif
  	free(rname);
  
