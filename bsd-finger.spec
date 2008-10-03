@@ -9,7 +9,7 @@ Summary(tr.UTF-8):	Finger istemcisi
 Summary(uk.UTF-8):	Клієнт finger
 Name:		bsd-finger
 Version:	0.17
-Release:	12
+Release:	13
 License:	BSD
 Group:		Networking/Utilities
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/%{name}-%{version}.tar.gz
@@ -25,6 +25,8 @@ Patch3:		%{name}-time.patch
 Patch4:		%{name}-gecos.patch
 Patch5:		%{name}-rfc742.patch
 Patch6:		%{name}-typo.patch
+Patch7:		%{name}-wide-char-support5.patch
+Patch8:		%{name}-iconv.patch
 BuildRequires:	rpmbuild(macros) >= 1.268
 Obsoletes:	finger
 Obsoletes:	finger-client
@@ -146,6 +148,8 @@ finger sunucusu bulunmaktadır.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
+%patch8 -p1
 
 %build
 CC="%{__cc}" \
