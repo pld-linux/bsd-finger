@@ -1,0 +1,73 @@
+diff -ur bsd-finger-0.17/finger/util.c bsd-finger-0.17-iconv/finger/util.c
+--- bsd-finger-0.17/finger/util.c	2008-10-03 23:13:12.000000000 +0200
++++ bsd-finger-0.17-iconv/finger/util.c	2008-10-03 23:11:21.000000000 +0200
+@@ -53,6 +53,14 @@
+ #include <stdlib.h>
+ #include "finger.h"
+ 
++#define HAVE_LANGINFO_H	1
++#define HAVE_ICONV	1
++
++#if defined(HAVE_LANGINFO_H) && defined(HAVE_ICONV)
++#include <langinfo.h>
++#include <iconv.h>
++#endif
++
+ #define	HBITS	8			/* number of bits in hash code */
+ #define	HSIZE	(1 << 8)		/* hash table size */
+ #define	HMASK	(HSIZE - 1)		/* hash code mask */
+@@ -227,6 +235,54 @@
+ 	    if (!strcasecmp(p, user)) 
+ 		rv = 1;
+ 	}
++
++#if defined(HAVE_LANGINFO_H) && defined(HAVE_ICONV)
++	if (!rv && has_locale) {
++		char *irname, *iuser, *inbuf, *outbuf;
++		iconv_t cd;
++		size_t il, ol;
++
++		irname = malloc(2*strlen(rname) + 1);
++		if (!irname)
++			goto done;
++		iuser = malloc(2*strlen(user) + 1);
++		if (!iuser)
++			goto done_rname;
++		memset(iuser, 0, 2*strlen(user) + 1);
++		memset(irname, 0, 2*strlen(rname) + 1);
++
++		cd = iconv_open("ascii//translit", nl_langinfo(CODESET));
++		if (cd == (iconv_t)-1)
++			goto done_user;
++
++		il = strlen(rname);
++		ol = 2*strlen(rname);
++		inbuf = rname;
++		outbuf = irname;
++		i = iconv(cd, &inbuf, &il, &outbuf, &ol);
++
++		il = strlen(user);
++		ol = 2*strlen(user);
++		inbuf = (char *)user;
++		outbuf = iuser;
++		j = iconv(cd, &inbuf, &il, &outbuf, &ol);
++
++		if (i < 0 || j < 0 )
++			goto done_iconv;
++
++		for (p = strtok(irname, "\t "); p && !rv; p = strtok(NULL, "\t ")) {
++		    if (!strcasecmp(p, iuser)) 
++			rv = 1;
++		}
++done_iconv:
++		iconv_close(cd);
++done_user:
++		free(iuser);
++done_rname:
++		free(irname);
++	}
++done:
++#endif
+ 	free(rname);
+ 
+ 	return rv;
