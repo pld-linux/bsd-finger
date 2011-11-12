@@ -1,0 +1,101 @@
+;
+; IPv6 enabled finger client/server for PLD GNU Linux
+;               Arkadiusz Mi¶kiewicz <misiek@pld.org.pl>
+;
+diff -urN bsd-finger-0.16.org/finger/net.c bsd-finger-0.16/finger/net.c
+--- bsd-finger-0.16.org/finger/net.c	Tue Sep 12 21:34:24 2000
++++ bsd-finger-0.16/finger/net.c	Tue Sep 12 21:34:50 2000
+@@ -53,59 +53,50 @@
+ 
+ void netfinger(const char *name) {
+ 	register FILE *fp;
+-	struct in_addr defaddr;
+ 	register int c, sawret, ateol;
+-	struct hostent *hp, def;
+-	struct servent *sp;
+-	struct sockaddr_in sn;
+-	int s;
+-	char *alist[1], *host;
++	char *host;
++	char hbuf[NI_MAXHOST];
++	struct addrinfo hints, *res, *res0;
++	int s = -1;
+ 
+ 	host = strrchr(name, '@');
+ 	if (!host) return;
+ 	*host++ = '\0';
+ 
+-	memset(&sn, 0, sizeof(sn));
+-
+-	sp = getservbyname("finger", "tcp");
+-	if (!sp) {
+-		eprintf("finger: tcp/finger: unknown service\n");
++	memset(&hints, 0, sizeof(hints));
++	hints.ai_family = AF_UNSPEC;
++	hints.ai_socktype = SOCK_STREAM;
++	if (getaddrinfo(host, "finger", &hints, &res0)) {
++		eprintf("finger: unknown host: %s\n", host);
+ 		return;
+ 	}
+-	sn.sin_port = sp->s_port;
+-
+-	hp = gethostbyname(host);
+-	if (!hp) {
+-		if (!inet_aton(host, &defaddr)) {
+-			eprintf("finger: unknown host: %s\n", host);
+-			return;
++	for (res = res0; res; res = res->ai_next) {
++		s = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
++		if (s < 0) {
++			if (res->ai_next)
++				continue;
++			else {
++				eprintf("finger: socket: %s\n", strerror(errno));
++				return;
++			}
+ 		}
+-		def.h_name = host;
+-		def.h_addr_list = alist;
+-		def.h_addr = (char *)&defaddr;
+-		def.h_length = sizeof(struct in_addr);
+-		def.h_addrtype = AF_INET;
+-		def.h_aliases = 0;
+-		hp = &def;
+-	}
+-	sn.sin_family = hp->h_addrtype;
+-	if (hp->h_length > (int)sizeof(sn.sin_addr)) {
+-	    hp->h_length = sizeof(sn.sin_addr);
+-	}
+-	memcpy(&sn.sin_addr, hp->h_addr, hp->h_length);
+-
+-	if ((s = socket(hp->h_addrtype, SOCK_STREAM, 0)) < 0) {
+-		eprintf("finger: socket: %s\n", strerror(errno));
+-		return;
+-	}
+-
+-	/* print hostname before connecting, in case it takes a while */
+-	xprintf("[%s]\n", hp->h_name);
+-	if (connect(s, (struct sockaddr *)&sn, sizeof(sn)) < 0) {
+-		eprintf("finger: connect: %s\n", strerror(errno));
+-		close(s);
+-		return;
++		getnameinfo(res->ai_addr, res->ai_addrlen, hbuf, sizeof(hbuf),
++				NULL, 0, 0);
++		/* print hostname before connecting, in case it takes a while */
++		xprintf("[%s]\n", hbuf);
++		if (connect(s, res->ai_addr, res->ai_addrlen) < 0) {
++			if (res->ai_next) {
++				close(s);
++				continue;
++			} else {
++				eprintf("finger: connect: %s\n", strerror(errno));
++				close(s);
++				return;
++			}
++		}
++		break;
+ 	}
++	freeaddrinfo(res0);
+ 
+ 	/* -l flag for remote fingerd  */
+ 	if (lflag) write(s, "/W ", 3);
